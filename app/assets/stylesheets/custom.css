@@ -1,0 +1,64 @@
+/* Override Bootstrap */
+section {
+    padding-top: 60px;
+}
+.modal-body span {
+    display: inline-block;
+}
+
+/* Snippets */
+.wp30 {
+    width: 30%;
+}
+.wp90 {
+    width: 90%;
+}
+.f50 {
+    font-size: 50px;
+}
+.f60 {
+    font-size: 60px;
+}
+.f90 {
+    font-size: 90px;
+}
+.lh1 {
+    line-height: 1;
+}
+.lh15 {
+    line-height: 1.5;
+}
+.lh2 {
+    line-height: 2;
+}
+.mt90 {
+    margin-top: 90px;
+}
+.center {
+    text-align: center;
+}
+
+section#intro {
+    background: url('intro-bg.jpg');
+    background-size: 1351px;
+}
+section#intro h1 {
+    text-shadow: 0 0 0.2em #FFF, 0 0 0.2em #FFF, 0 0 0.2em #FFF;
+    color: #585858;
+}
+
+section#contact {
+    padding: 15px 0;
+    background-color: whiteSmoke;
+    border-top: 1px solid white;
+    border-bottom: 1px solid #DDD;
+}
+section#contact ul {
+    list-style: none;
+    margin: 0;
+}
+section#contact ul li{
+    display: inline-block;
+    padding: 0px 65px;
+    line-height: 1;
+}

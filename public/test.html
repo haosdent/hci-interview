@@ -1,0 +1,25 @@
+
+		  <!-- Start Opinion -->
+		  <% for(var m = 0, n = opinions.length; m < n; m++){ %>
+		     <% var opinion = opinions[m]; %>
+
+		     <% if (m == 0) {%>
+		     <tr style="display:none;" dataParentId="<%= user._id %>">
+		       <th colspan="2"></th>
+		       <th colspan="3">Opinion Content</th>
+		       <th colspan="2">Created at</th>
+		       <th colspan="2">Updated at</th>
+		       <th colspan="2">Creator</th>
+		     </tr>
+		     <% };%>
+
+		     <tr class="info" style="display:none;" dataParentId="<%= user._id %>">
+		       <td colspan="2"></td>
+		       <td colspan="3"><%= opinion.content %></td>
+		       <td class="center" colspan="2"><%= opinion.created_at %></td>
+		       <td class="center" colspan="2"><%= opinion.updated_at %></td>
+		       <td class="center" colspan="2"><%= opinion.creator_id%></td>
+		     </tr>
+		     <% };%>
+		     <!-- End of Opinion -->
+

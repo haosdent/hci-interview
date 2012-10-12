@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>HCI Interview</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="assets/bootstrap.css" media="all" type="text/css" rel="stylesheet">
+    <link href="assets/custom.css" media="all" type="text/css" rel="stylesheet">
+  </head>
+  <body data-spy="scroll" data-target=".navbar">
+    <!-- Navbar -->
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+	<div class="container">
+	  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+	  </a>
+	  <a class="brand" href="#about">HCI Interview</a>
+	  <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#intro"><i class="icon-home"></i> Introduction</a></li>
+              <li class=""><a href="#about"><i class="icon-th-list"></i> About</a></li>
+              <li class=""><a href="#sign"><i class="icon-hand-up"></i> SignUp</a></li>
+	      <!-- when current user no equal null-->
+              <li class=""><a href="#info" style="display:none;"><i class="icon-info-sign"></i> My Account</a></li>
+              <li class=""><a href="#signOut" style="display:none;"><i class="icon-hand-down"></i> SignOut</a></li>
+            </ul>
+	    <!-- when current user is admin-->
+            <ul class="nav pull-right">
+              <li class=""><a href="#admin" style="display:none;"><i class="icon-wrench"></i> Admin</a></li>
+            </ul>
+	  </div><!--/.nav-collapse -->
+	</div><!--/.container -->
+      </div><!-- /.navbar-inner -->
+    </div><!--/.navbar navbar-fixed-top -->
+    <!-- End of Navbar -->
+
+    <!-- Introduction -->
+    <section role="intro" class="center" id="intro">
+      <div class="container">
+	<h1 class="f90 lh15 mt100 mt90">HCI@SCAU</h1>
+	<h2 class="f50 lh15">Foobarfoobarfoobar</h2>
+	<div class="row-fluid">
+          <ul class="thumbnails">
+            <li class="span3">
+              <a href="#" class="thumbnail">
+		<img src="assets/project-example.gif" alt="Project Example">
+              </a>
+            </li>
+            <li class="span3">
+              <a href="#" class="thumbnail">
+		<img src="assets/project-example.gif" alt="Project Example">
+              </a>
+            </li>
+            <li class="span3">
+              <a href="#" class="thumbnail">
+		<img src="assets/project-example.gif" alt="Project Example">
+              </a>
+            </li>
+            <li class="span3">
+              <a href="#" class="thumbnail">
+		<img src="assets/project-example.gif" alt="Project Example">
+              </a>
+            </li>
+          </ul><!--/.thumbnails -->
+	</div><!--/.row-fluid -->
+      </div><!--/.container -->
+    </section>
+    <!-- End of Introduction -->
+
+    <!-- Contact -->
+    <section role="contact" class="center" id="contact">
+      <div class="container">
+        <ul>
+          <li><a class="btn btn-large btn-success" href="mailto:hci@scau.edu.cn">Contact Us</a></li>
+          <li><a class="btn btn-large btn-warning" href="#sign">Add Us</a></li>
+	  <li><a class="btn btn-large" href="https://github.com/scauhci/">Our Github</a></li>
+        </ul>
+      </div>
+    </section>
+    <!-- End of Contact -->
+
+    <!-- About -->
+    <section role="about" class="container center" id="about">
+      <h1 class="f60 lh15">About Us</h1>
+      <h2 class="lh2">Foobarfoobarfoobarfoobarfoobarfoobarfoobarfoobar</h2>
+
+      <div class="row-fluid">
+	<div class="span4">
+          <img src="assets/project-example.gif">
+          <h2>Foobarfoobar.</h2>
+          <p>Foobarfoobarfoobarfoobarfoobarfoobar<br>foobarfoobarfoobarfoobarfoobarfoobar<br>foobarfoobarfoobar.</p>
+	</div>
+	<div class="span4">
+          <img src="assets/project-example.gif">
+          <h2>Foobarfoobar.</h2>
+          <p>Foobarfoobarfoobarfoobarfoobarfoobar<br>foobarfoobarfoobarfoobarfoobarfoobar<br>foobarfoobarfoobar.</p>
+	</div>
+	<div class="span4">
+          <img src="assets/project-example.gif">
+          <h2>Foobarfoobar.</h2>
+          <p>Foobarfoobarfoobarfoobarfoobarfoobar<br>foobarfoobarfoobarfoobarfoobarfoobar<br>foobarfoobarfoobar.</p>
+	</div>
+      </div>
+    </section>
+    <!-- End of About -->
+
+    <!-- Sign -->
+    <section role="sign" class="container" id="sign">
+      <div class="row">
+	<div class="span4 offset4 well signUp" id="signUp">
+	  <legend>Sign Up</legend>
+          <div class="alert alert-error" style="display:none;">
+            <a class="close" data-dismiss="alert" href="#">×</a><div class="content">Incorrect Username or Password!</div>
+          </div>
+	  <form accept-charset="UTF-8" action="" method="POST">
+	    <input class="span4" name="email" placeholder="Email" type="text">
+            <input class="span4" name="name" placeholder="Name" type="text">
+            <input class="span4" name="password" placeholder="Password" type="password">
+            <input class="span4" name="confirmPassword" placeholder="Confirm Password" type="password">
+            <input class="span4" name="mobile" placeholder="Mobile" type="text">
+            <input class="span4" name="studentId" placeholder="Student Id" type="text">
+            <button class="btn btn-warning btn-block" type="submit">Sign up</button>
+	    <a class="btn btn-success btn-block" href="#signIn">I have already registered.</a>
+	  </form>
+	</div><!-- /.signUp -->
+	<div class="span4 offset4 well signIn" id="signIn" style="display:none;">
+	  <legend>Sign In</legend>
+          <div class="alert alert-error" style="display:none;">
+            <a class="close" data-dismiss="alert" href="#">×</a><div class="content">Incorrect Username or Password!</div>
+          </div>
+	  <form method="POST" action="" accept-charset="UTF-8">
+	    <input type="text" id="email" class="span4" name="email" placeholder="Email">
+	    <input type="password" id="password" class="span4" name="password" placeholder="Password">
+	    <button type="submit" name="submit" class="btn btn-info btn-block">Sign in</button>
+	    <a class="btn btn-danger btn-block" href="#signUp">I want to register.</a>
+	  </form>
+	</div><!-- /.signIn -->
+      </div><!-- /.row -->
+    </section><!-- /role=sign -->
+    <!-- End of Sign -->
+
+    <!-- Info -->
+    <section role="info" class="container" style="display:none;" id="info">
+    </section>
+    <!-- End of Info -->
+
+    <!-- Admin -->
+    <section role="admin" class="container" style="display:none;" id="admin">
+    </section>
+    <!-- End of Admin -->
+
+    <!-- Inspect -->
+    <section role="inspect" class="container">
+    </section>
+    <!-- End of Inspect -->
+
+    <!-- Start of User Modal -->
+    <div class="modal hide fade" id="userModal">
+      <div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h3>Change Password</h3>
+      </div>
+      <div class="center modal-body">
+	<div class="alert alert-error" style="display:none;">
+            <a class="close" data-dismiss="alert">×</a><div class="content">Student Id is incorrect!</div>
+        </div>
+	<p><span class="wp30">Current Password: </span><input class="content currentPassword" type="password" placeholder="Type your current password…"></p>
+	<p><span class="wp30">New Password: </span><input class="content password" type="password" placeholder="Type your new password…"></p>
+	<p><span class="wp30">Confirm Password: </span><input class="content confirmPassword" type="password" placeholder="Confirm your new password…"></p>
+      </div>
+      <div class="modal-footer">
+	<a href="#" class="btn btn-primary">OK</a>
+      </div>
+    </div>
+    <!-- End of User Modal -->
+
+    <!-- Start of Inspect Modal -->
+    <div class="modal hide fade" id="inspectModal">
+      <div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h3>Add Inspect</h3>
+      </div>
+      <div class="center modal-body">
+	<input class="wp90 content" type="text" placeholder="Type inspect content…" dataUserId="">
+      </div>
+      <div class="modal-footer">
+	<a href="#" class="btn btn-primary">OK</a>
+      </div>
+    </div>
+    <!-- End of Inspect Modal -->
+
+    <!-- Start of Opinion Modal -->
+    <div class="modal hide fade" id="opinionModal">
+      <div class="modal-header">
+	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	<h3>Add Opinion</h3>
+      </div>
+      <div class="center modal-body">
+	<input class="wp90 content" type="text" placeholder="Type opinion content…">
+      </div>
+      <div class="modal-footer">
+	<a href="#" class="btn btn-primary">OK</a>
+      </div>
+    </div>
+    <!-- End of Opinion Modal -->
+
+    <!-- TODO: Add Condition Judgment. -->
+    <script type="text/html" id="user">
+      <div class="row well">
+	<div class="span1">
+	  <a href="" class="thumbnail"><img src="http://critterapp.pagodabox.com/img/user.jpg" alt=""></a>
+	</div>
+	<div class="span3">
+          <strong><p><%= user.name %></p></strong>
+          <strong><p><%= user.email %></p></strong>
+	  <p><span class=" badge badge-warning">Mobile</span> <span class=" badge badge-info"><%= user.mobile %></span></p>
+	  <p><span class=" badge badge-warning">Student Id</span> <span class=" badge badge-info"><%= user.studentId %></span></p>
+	  <p><span class=" badge badge-warning">Passed</span>
+	    <% if (user.passed) {%>
+	    <span class=" badge badge-success">Yes</span>
+	    <% }else{%>
+	    <span class=" badge badge-important">No</span>
+	    <% };%>
+	  </p>
+	  <p><span class="badge badge-success" data-toggle="modal" data-target="#userModal">Change Password</span></p>
+	</div>
+      </div>
+    </script><!-- End of User Template -->
+
+    <!-- TODO: Add Condition Judgment. -->
+    <script type="text/html" id="userList">
+      <div class="row">
+
+	<!-- Start User -->
+	<% for(var i = 0, l = users.length; i < l; i++){ %>
+	   <% var user = users[i], inspects = (user.inspects || []); %>
+
+	   <% if (i == 0) {%>
+	   <table class="table table-striped table-hover">
+	     <thead>
+	       <tr>
+		 <th>Name</th>
+		 <th>Email</th>
+		 <th>Student Id</th>
+		 <th>Mobile</th>
+		 <th>Sex</th>
+		 <th>Grade</th>
+		 <th>College</th>
+		 <th>Specialty</th>
+		 <th>Class</th>
+		 <th>Pass</th>
+	       </tr>
+	     </thead>
+	     <tbody>
+	       <% };%>
+
+	       <tr class="warning" dataId="<%= user._id %>">
+		 <td><%= user.name %></td>
+		 <td class="center"><%= user.email %></td>
+		 <td class="center"><%= user.student_id %></td>
+		 <td class="center"><%= user.mobile %></td>
+		 <td class="center">Male</td>
+		 <td class="center">2010</td>
+		 <td class="center">Infomation College</td>
+		 <td class="center">Network Engineer</td>
+		 <td class="center">1</td>
+		 <td class="center">
+		   <% if (user.passed) {%>
+		   <span class="label label-success">Yes</span>
+		   <% }else{%>
+		   <span class="label label-important">No</span>
+		   <% };%>
+		 </td>
+	       </tr>
+
+	       <!-- Start Inspect -->
+	       <% for(var j = 0, k =inspects.length; j < k; j++){ %>
+		  <% var inspect = inspects[j], opinions = (inspect.opinions || []); %>
+
+		  <% if (j == 0) {%>
+		  <tr style="display:none;" dataParentId="<%= user._id %>">
+		    <th colspan="1"></th>
+		    <th colspan="4">Inspect Content</th>
+		    <th colspan="2">Created at</th>
+		    <th colspan="2">Updated at</th>
+		    <th colspan="2">Creator</th>
+		  </tr>
+		  <% };%>
+
+		  <tr class="success" style="display:none;" dataParentId="<%= user._id %>">
+		    <td colspan="1"></td>
+		    <td colspan="4"><%= inspect.content %></td>
+		    <td class="center" colspan="2"><%= inspect.created_at %></td>
+		    <td class="center" colspan="2"><%= inspect.updated_at %></td>
+		    <td class="center" colspan="2"><%= inspect.creator_id %></td>
+		  </tr>
+
+		  <!-- Start Opinion -->
+		  <% for(var m = 0, n = opinions.length; m < n; m++){ %>
+		     <% var opinion = opinions[m]; %>
+
+		     <% if (m == 0) {%>
+		     <tr style="display:none;" dataParentId="<%= user._id %>">
+		       <th colspan="2"></th>
+		       <th colspan="3">Opinion Content</th>
+		       <th colspan="2">Created at</th>
+		       <th colspan="2">Updated at</th>
+		       <th colspan="2">Creator</th>
+		     </tr>
+		     <% };%>
+
+		     <tr class="info" style="display:none;" dataParentId="<%= user._id %>">
+		       <td colspan="2"></td>
+		       <td colspan="3"><%= opinion.content %></td>
+		       <td class="center" colspan="2"><%= opinion.created_at %></td>
+		       <td class="center" colspan="2"><%= opinion.updated_at %></td>
+		       <td class="center" colspan="2"><%= opinion.creator_id%></td>
+		     </tr>
+		     <% };%>
+		     <!-- End of Opinion -->
+
+		  <% };%>
+		  <!-- End of Inspect -->
+
+	       <% if (i == l) {%>
+	     </tbody>
+	   </table>
+	   <% };%>
+	   <% }; %>
+	   <!-- End of User-->
+      </div>
+    </script><!-- End of UserList Template -->
+
+    <script type="text/html" id="inspectList">
+      <div class="row well">
+	<div class="span1"><a href="" class="thumbnail"><img src="http://critterapp.pagodabox.com/img/user.jpg" alt=""></a></div>
+	<div class="span10">
+	  <strong><p><%= user.name %></p></strong>
+	  <strong><p><%= user.email %></p></strong>
+	  <p><span class=" badge badge-warning">Mobile</span> <span class=" badge badge-info"><%= user.mobile %></span></p>
+	  <p><span class=" badge badge-warning">Student Id</span> <span class=" badge badge-info"><%= user.student_id %></span></p>
+	  <p><span class=" badge badge-warning">Passed</span>
+	    <% if (user.passed) {%>
+	    <span class=" badge badge-success">Yes</span>
+	    <% }else{%>
+	    <span class=" badge badge-important">No</span>
+	    <% };%>
+	  </p>
+	</div>
+
+	<!-- Start Inspect -->
+	<table class="table table-striped table-hover" style="width:900px; margin:0 auto;">
+	  <thead>
+	    <tr>
+	      <th colspan="2"><a href="#addInspect" class="btn btn-inverse disabled" dataUserId="<%= user._id %>" data-toggle="modal" data-target="#inspectModal"><i class="icon-white icon-plus"></i></a></th>
+	      <th colspan="2">Inspect Content</th>
+	      <th colspan="2"></th>
+	      <th colspan="2">Created at</th>
+	      <th colspan="2">Updated at</th>
+	      <th colspan="2">Creator</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <% for(var i = 0, l = (user.inspects || []).length; i < l; i++){ %>
+	       <% var inspect = user.inspects[i]; %>
+
+	       <tr class="success" dataUserId="<%= user._id %>" dataInspectId="<%= inspect._id %>">
+		 <td colspan="2"><a href="#delInspect" class="btn btn-inverse disabled" dataUserId="<%= user._id %>" dataInspectId="<%= inspect._id %>"><i class="icon-white icon-minus"></i></a></td>
+		 <td colspan="2"><%= inspect.content %></td>
+		 <td class="center" colspan="2"></td>
+		 <td class="center" colspan="2"><%= inspect.created_at %></td>
+		 <td class="center" colspan="2"><%= inspect.updated_at %></td>
+		 <td class="center" colspan="2"><%= inspect.creator_id %></td>
+	       </tr>
+
+	       <!-- Start Opinion -->
+	       <tr dataUserId="<%= user._id %>" dataInspectId="<%= inspect._id %>">
+		 <th colspan="2"><a href="#addOpinion" class="btn btn-inverse disabled" data-toggle="modal" data-target="#opinionModal" dataUserId="<%= user._id %>" dataInspectId="<%= inspect._id %>"><i class="icon-white icon-plus"></i></a></th>
+		 <th colspan="2"></th>
+		 <th colspan="2">Opinion Content</th>
+		 <th colspan="2">Created at</th>
+		 <th colspan="2">Updated at</th>
+		 <th colspan="2">Creator</th>
+	       </tr>
+	       <% for(var m = 0, n = (inspect.opinions || []).length; m < n; m++){ %>
+		  <% var opinion = inspect.opinions[m]; %>
+
+		  <tr class="info" dataUserId="<%= user._id %>" dataInspectId="<%= inspect._id %>" dataOpinionId="<%= opinion._id %>">
+		    <td colspan="2"><a href="#delOpinion" class="btn btn-inverse disabled" dataUserId="<%= user._id %>" dataInspectId="<%= inspect._id %>" dataOpinionId="<%= opinion._id %>"><i class="icon-white icon-minus"></i></a></td>
+		    <td colspan="2"></td>
+		    <td colspan="2"><%= opinion.content %></td>
+		    <td class="center" colspan="2"><%= opinion.created_at %></td>
+		    <td class="center" colspan="2"><%= opinion.updated_at %></td>
+		    <td class="center" colspan="2"><%= opinion.created_id %></td>
+		  </tr>
+		  <% };%>
+		  <!-- End of Opinion -->
+
+		  <% };%>
+	  </tbody>
+	</table>
+	<!-- End of Inspect -->
+      </div>
+    </script><!--/InspectList Template -->
+
+    <script type="text/html" id="inspect">
+      <tr class="success" dataUserId="<%= id %>" dataInspectId="<%= inspect._id %>">
+	<td colspan="2"><a href="#delInspect" class="btn btn-inverse disabled" dataUserId="<%= id %>" dataInspectId="<%= inspect._id %>"><i class="icon-white icon-minus"></i></a></td>
+	<td colspan="2"><%= inspect.content %></td>
+	<td class="center" colspan="2"></td>
+	<td class="center" colspan="2"><%= inspect.created_at %></td>
+	<td class="center" colspan="2"><%= inspect.updated_at %></td>
+	<td class="center" colspan="2"><%= inspect.creator_id %></td>
+      </tr>
+      <!-- Start of Opinion Head -->
+      <tr dataUserId="<%= id %>" dataInspectId="<%= inspect._id %>">
+	<th colspan="2"><a href="#addOpinion" class="btn btn-inverse disabled" data-toggle="modal" data-target="#opinionModal" dataUserId="<%= id %>" dataInspectId="<%= inspect._id %>"><i class="icon-white icon-plus"></i></a></th>
+	<th colspan="2"></th>
+	<th colspan="2">Opinion Content</th>
+	<th colspan="2">Created at</th>
+	<th colspan="2">Updated at</th>
+	<th colspan="2">Creator</th>
+      </tr>
+      <!-- End of Opinion Head -->
+    </script><!--/Inspect Template -->
+
+    <script type="text/html" id="opinion">
+      <tr class="info" dataUserId="<%= id %>" dataInspectId="<%= inspectId %>" dataOpinionId="<%= opinion._id %>">
+	<td colspan="2"><a href="#delOpinion" class="btn btn-inverse disabled" dataUserId="<%= id %>" dataInspectId="<%= inspectId %>" dataOpinionId="<%= opinion._id %>"><i class="icon-white icon-minus"></i></a></td>
+	<td colspan="2"></td>
+	<td colspan="2"><%= opinion.content %></td>
+	<td class="center" colspan="2"><%= opinion.created_at %></td>
+	<td class="center" colspan="2"><%= opinion.updated_at %></td>
+	<td class="center" colspan="2"><%= opinion.created_id %></td>
+      </tr>
+    </script><!--/Opinion Template -->
+
+    <script type="text/javascript" src="assets/template.js"></script>
+    <script type="text/javascript" src="assets/jquery-1.8.1.js"></script>
+    <script type="text/javascript" src="assets/bootstrap.js"></script>
+    <script type="text/javascript" src="assets/Pub.js"></script>
+    <script type="text/javascript" src="assets/View.js"></script>
+    <script type="text/javascript" src="assets/Event.js"></script>
+    <script type="text/javascript" src="assets/UserOperator.js"></script>
+    <script type="text/javascript" src="assets/InspectOperator.js"></script>
+    <script type="text/javascript" src="assets/OpinionOperator.js"></script>
+    <!--<script type="text/javascript" src="assets/Test.js"></script>-->
+    <!--<script type="text/javascript" src="assets/application.js"></script>-->
+  </body>
+</html>
