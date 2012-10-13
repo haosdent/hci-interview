@@ -19,7 +19,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+# For Ruby 1.9 Cloud Foundry requires a tweak to the jquery-rails gem.
+#gem 'jquery-rails'
+gem 'cloudfoundry-jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -34,17 +36,14 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+#gem 'debugger'
 
 # To use mongoid as driver to mongo and use devise to auth.
-gem "mongoid", ">= 3.0.3"
-gem "rspec-rails", ">= 2.11.0", :group => [:development, :test]
-gem "capybara", ">= 1.1.2", :group => :test
-gem "database_cleaner", ">= 0.8.0", :group => :test
-gem "mongoid-rspec", ">= 1.4.6", :group => :test
-gem "email_spec", ">= 1.2.1", :group => :test
-gem "cucumber-rails", ">= 1.3.0", :group => :test, :require => false
-gem "launchy", ">= 2.1.2", :group => :test
-gem "factory_girl_rails", ">= 4.0.0", :group => [:development, :test]
+gem "bson_ext"
+gem "mongoid", "= 2.5.0"
 gem "devise", ">= 2.1.2"
 gem "tlsmail"
+gem 'json'
+gem 'thin'
+gem 'bundler'
+gem 'rake'

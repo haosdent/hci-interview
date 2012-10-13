@@ -1,6 +1,7 @@
 (function(){
      var Opinion = this.Opinion = function(user){
-	 if(!user.checkAdmin()) throw new Error('Current user is no a admin.');
+	 //if(!user.checkAdmin()) throw new Error('Current user is no a admin.');
+	 if(!user.checkAdmin()) return;
 	 this.location = pub.location.opinion;
      };
 

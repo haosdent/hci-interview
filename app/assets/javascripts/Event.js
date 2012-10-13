@@ -159,7 +159,7 @@ window.event = function(){
 			return;
 		    };
 
-		    window.user = new User(this.email.value, this.password.value);
+		    window.user = new User(d.email.value, d.password.value);
 		    var callback = function(user){
 			animation.signIn(user);
 		    };
@@ -186,10 +186,10 @@ window.event = function(){
 		};
 
 		var user = window.user;
-		user = new User(this.email.value, this.password.value);
-		user.name = this.name.value;
-		user.studentId = this.studentId.value;
-		user.mobile = this.mobile.value;
+		user = new User(d.email.value, d.password.value);
+		user.name = d.name.value;
+		user.studentId = d.studentId.value;
+		user.mobile = d.mobile.value;
 		var callback = function(user){
 		    animation.signIn(user);
 		};
