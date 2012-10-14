@@ -94,6 +94,7 @@ window.view = (function(){
 	},
 	info: function(){
 	    ui.admin.hide();
+	    ui.inspect.hide();
 	    ui.intro.show();
 	    ui.contact.show();
 	    ui.about.show();

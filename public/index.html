@@ -1,10 +1,8 @@
-/*
- * @name: index.html
- * @author: Haosdent Huang
- * @email: haosdent@gmail.com
- * @date: 2012-10-15
- * @overview: The entire interview website is only this page.
- */
+<!-- @name: index.html
+     @author: Haosdent Huang
+     @email: haosdent@gmail.com
+     @date: 2012-10-15
+     @overview: The entire interview website is only this page.-->
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,11 +11,11 @@
     <title>HCI Interview</title>
     <meta name="viewport" content="width=device-width">
     <!-- For Produciton Environment. -->
-    <!--<link href="assets/application.css" media="all" type="text/css" rel="stylesheet">-->
+    <link href="assets/application.css" media="all" type="text/css" rel="stylesheet">
 
     <!-- For Development Environment. -->
-    <link href="assets/bootstrap.css" media="all" type="text/css" rel="stylesheet">
-    <link href="assets/custom.css" media="all" type="text/css" rel="stylesheet">
+    <!--<link href="assets/bootstrap.css" media="all" type="text/css" rel="stylesheet">
+    <link href="assets/custom.css" media="all" type="text/css" rel="stylesheet">-->
   </head>
   <body data-spy="scroll" data-target=".navbar">
     <!-- Navbar -->
@@ -244,6 +242,7 @@
     </script><!-- End of User Template -->
 
     <script type="text/html" id="user-list">
+      <% if (users) {%>
       <div class="row">
 
 	<!-- Start User -->
@@ -344,6 +343,7 @@
 	   <% }; %>
 	   <!-- End of User-->
       </div>
+      <% };%>
     </script><!-- End of UserList Template -->
 
     <script type="text/html" id="inspect-list">
@@ -460,7 +460,7 @@
     </script><!--/Opinion Template -->
 
     <!-- For Development Environment. -->
-    <script type="text/javascript" src="assets/template.js"></script>
+    <!--<script type="text/javascript" src="assets/template.js"></script>
     <script type="text/javascript" src="assets/jquery-1.8.1.js"></script>
     <script type="text/javascript" src="assets/bootstrap.js"></script>
     <script type="text/javascript" src="assets/Pub.js"></script>
@@ -468,11 +468,11 @@
     <script type="text/javascript" src="assets/Event.js"></script>
     <script type="text/javascript" src="assets/UserOperator.js"></script>
     <script type="text/javascript" src="assets/InspectOperator.js"></script>
-    <script type="text/javascript" src="assets/OpinionOperator.js"></script>
+    <script type="text/javascript" src="assets/OpinionOperator.js"></script>-->
     <!-- For Test Environment. -->
     <!--<script type="text/javascript" src="assets/Test.js"></script>-->
 
     <!-- For Produciton Environment. -->
-    <!--<script type="text/javascript" src="assets/application.js"></script>-->
+    <script type="text/javascript" src="assets/application.js"></script>
   </body>
 </html>
