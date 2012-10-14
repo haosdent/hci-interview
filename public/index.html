@@ -214,6 +214,7 @@
 
     <!-- TODO: Add Condition Judgment. -->
     <script type="text/html" id="user">
+      <% if (user) {%>
       <div class="row well">
 	<div class="span1">
 	  <a href="" class="thumbnail"><img src="http://critterapp.pagodabox.com/img/user.jpg" alt=""></a>
@@ -233,6 +234,7 @@
 	  <p><span class="badge badge-success" data-toggle="modal" data-target="#userModal">Change Password</span></p>
 	</div>
       </div>
+      <% };%>
     </script><!-- End of User Template -->
 
     <!-- TODO: Add Condition Judgment. -->
@@ -340,6 +342,7 @@
     </script><!-- End of UserList Template -->
 
     <script type="text/html" id="inspectList">
+      <% if (user) {%>
       <div class="row well">
 	<div class="span1"><a href="" class="thumbnail"><img src="http://critterapp.pagodabox.com/img/user.jpg" alt=""></a></div>
 	<div class="span10">
@@ -347,11 +350,18 @@
 	  <strong><p><%= user.email %></p></strong>
 	  <p><span class=" badge badge-warning">Mobile</span> <span class=" badge badge-info"><%= user.mobile %></span></p>
 	  <p><span class=" badge badge-warning">Student Id</span> <span class=" badge badge-info"><%= user.student_id %></span></p>
-	  <p><span class=" badge badge-warning">Passed</span>
+	  <p dataUserId="<%= user._id %>"><span class=" badge badge-warning">Passed</span>
 	    <% if (user.passed) {%>
-	    <span class=" badge badge-success">Yes</span>
+	    <span class=" badge badge-success badge-passed">Yes</span>
 	    <% }else{%>
-	    <span class=" badge badge-important">No</span>
+	    <span class=" badge badge-important badge-passed">No</span>
+	    <% };%>
+	  </p>
+	  <p dataUserId="<%= user._id %>"><span class=" badge badge-warning">Admin</span>
+	    <% if (user.admin) {%>
+	    <span class=" badge badge-success badge-admin">Yes</span>
+	    <% }else{%>
+	    <span class=" badge badge-important badge-admin">No</span>
 	    <% };%>
 	  </p>
 	</div>
@@ -409,6 +419,7 @@
 	</table>
 	<!-- End of Inspect -->
       </div>
+      <% };%>
     </script><!--/InspectList Template -->
 
     <script type="text/html" id="inspect">

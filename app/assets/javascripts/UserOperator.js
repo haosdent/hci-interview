@@ -187,6 +187,22 @@
 	 pub.xhr('PUT', location, callback, params);
      };
 
+     User.prototype.setAdmin = function(id, status, fn, errorFn){
+	 if(!this.checkAdmin()) return;
+	 var user = {
+	     admin: status
+	 };
+	 this.update(id, user, fn, errorFn);
+     };
+
+     User.prototype.setPassed = function(id, status, fn, errorFn){
+	 if(!this.checkAdmin()) return;
+	 var user = {
+	     passed: status
+	 };
+	 this.update(id, user, fn, errorFn);
+     };
+
      User.prototype.destroy = function(id, fn, errorFn){
 	 if(!this.checkAdmin()) return;
 
@@ -206,8 +222,6 @@
      };
 
      User.prototype.checkAdmin = function(){
-	 //For test set true.
-	 //return true;
 	 return this.admin;
      };
  }).call(this);

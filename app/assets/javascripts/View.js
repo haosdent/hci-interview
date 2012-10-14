@@ -43,6 +43,7 @@ window.view = (function(){
 
 	    render.user();
 	    render.userList();
+	    render.inspectList();
 	},
 	signInCheck: function(msg){
 	    $('.alert-error', ui.signIn).show();
@@ -67,6 +68,16 @@ window.view = (function(){
 	    ui.inspect.show();
 
 	    render.inspectList(user);
+	},
+	setPassed: function(status){
+	    var d = $('.badge-passed', ui.inspect);
+	    d.after(status ? '<span class="badge badge-success badge-passed">Yes</span>' : '<span class="badge badge-important badge-passed">No</span>');
+	    d.remove();
+	},
+	setAdmin: function(status){
+	    var d = $('.badge-admin', ui.inspect);
+	    d.after(status ? '<span class="badge badge-success badge-admin">Yes</span>' : '<span class="badge badge-important badge-admin">No</span>');
+	    d.remove();
 	},
 	delInspect: function(id, inspectId){
 	    $('tr[dataUserId="' + id + '"][dataInspectId="' + inspectId + '"]').remove();

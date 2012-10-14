@@ -20,6 +20,12 @@ class User::AdminsController < User::SessionsController
 
   def update
     @user = User.find(params[:id])
+
+    user = params[:user]
+    @user[:passed] = user[:passed] if user[:passed] != nil
+    @user[:admin] = user[:admin] if user[:admin] != nil
+    @user.save
+
     @user.update_attributes(params[:user])
     render :json => @user
   end

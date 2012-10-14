@@ -16,12 +16,32 @@ window.event = function(){
 		var id = $(d).attr('dataId');
 		var callback = function(user){
 		    animation.inspect(user);
+		    register.user.toggleAdmin($('.badge-admin', ui.inspect));
+		    register.user.togglePassed($('.badge-passed', ui.inspect));
 		    register.inspect.add($('a[href="#addInspect"]', ui.inspect));
 		    register.inspect.del($('a[href="#delInspect"]', ui.inspect));
 		    register.opinion.add($('a[href="#addOpinion"]', ui.inspect));
 		    register.opinion.del($('a[href="#delOpinion"]'), ui.inspect);
 		};
 		window.user.show(id, callback);
+	    },
+	    togglePassed: function(d){
+		var id = $(d).parent().attr('dataUserId');
+		var status = $(d).text().match('Yes') ? false : true;
+		var callback = function(){
+		    animation.setPassed(status);
+		    register.user.togglePassed($('.badge-passed', ui.inspect));
+		};
+		window.user.setPassed(id, status, callback);
+	    },
+	    toggleAdmin: function(d){
+		var id = $(d).parent().attr('dataUserId');
+		var status = $(d).text().match('Yes') ? false : true;
+		var callback = function(){
+		    animation.setAdmin(status);
+		    register.user.toggleAdmin($('.badge-admin', ui.inspect));
+		};
+		window.user.setAdmin(id, status, callback);
 	    },
 	    restore: function(){
 		window.user = new User();
@@ -63,8 +83,7 @@ window.event = function(){
 	    }
 	},
 	modal: {
-	    /* Change password. */
-	    user: function(d){
+	    changePassword: function(d){
 		var password = $('input.password', ui.userModal).val();
 		var confirmPassword = $('input.confirmPassword', ui.userModal).val();
 		var currentPassword = $('input.currentPassword', ui.userModal).val();
@@ -91,7 +110,7 @@ window.event = function(){
 		window.user.edit(callback, errorCallback);
 	    },
 	    /* Add inspect. */
-	    inspect: function(d){
+	    addInspect: function(d){
 		var input = $('input.content', ui.inspectModal);
 		var id = input.attr('dataUserId');
 		var inspect = {
@@ -108,7 +127,7 @@ window.event = function(){
 		window.inspect.create(id, inspect, callback);
 	    },
 	    /* Add opinion. */
-	    opinion: function(d){
+	    addOpinion: function(d){
 		var input = $('input.content', ui.opinionModal);
 		var id = input.attr('dataUserId');
 		var inspectId = input.attr('dataInspectId');
@@ -128,7 +147,7 @@ window.event = function(){
 	    admin: function(d){
 		var callback = function(users){
 		    animation.admin(users);
-		    register.user('tr', ui.admin);
+		    register.user.toggle('tr', ui.admin);
 		};
 		user.showAll(callback);
 	    },
@@ -174,7 +193,7 @@ window.event = function(){
 		var check = function(){
 		    msg = d.email.value.match('@') ? msg : 'Email is incorrect!';
 		    msg = d.name.value.length > 2 ? msg : 'Name is incorrect!';
-		    msg = d.password.value.length > 6 ? msg : 'Password is too short!';
+		    msg = d.password.value.length >= 6 ? msg : 'Password is too short!';
 		    msg = d.password.value == d.confirmPassword.value ? msg : 'Confirm Password not equal to Password';
 		    msg = d.mobile.value.length > 0 ? msg : 'Mobile is incorrect!';
 		    msg = d.studentId.value.length > 0 ? msg : 'Student Id is incorrect!';
@@ -213,9 +232,17 @@ window.event = function(){
 			  handler(this);
 		      });
 	},
-	user: function(d){
-	    register._base(d, 'click', handler.user.toggle);
-	    register._base(d, 'dblclick', handler.user.show);
+	user: {
+	    toggle: function(d){
+		register._base(d, 'click', handler.user.toggle);
+		register._base(d, 'dblclick', handler.user.show);
+	    },
+	    togglePassed: function(d){
+		register._base(d, 'click', handler.user.togglePassed);
+	    },
+	    toggleAdmin: function(d){
+		register._base(d, 'click', handler.user.toggleAdmin);
+	    }
 	},
 	inspect: {
 	    add: function(d){
@@ -234,14 +261,14 @@ window.event = function(){
 	    }
 	},
 	modal: {
-	    user: function(d){
-		register._base(d, 'click', handler.modal.user);
+	    changePassword: function(d){
+		register._base(d, 'click', handler.modal.changePassword);
 	    },
-	    inspect: function(d){
-		register._base(d, 'click', handler.modal.inspect);
+	    addInspect: function(d){
+		register._base(d, 'click', handler.modal.addInspect);
 	    },
-	    opinion: function(d){
-		register._base(d, 'click', handler.modal.opinion);
+	    addOpinion: function(d){
+		register._base(d, 'click', handler.modal.addOpinion);
 	    }
 	},
 	to: {
@@ -280,9 +307,9 @@ window.event = function(){
 	    register.to.signIn($('a[href="#signIn"]', ui.signUp));
 	    register.to.signUp($('a[href="#signUp"]', ui.signIn));
 
-	    register.modal.user($('.btn-primary', ui.userModal));
-	    register.modal.inspect($('.btn-primary', ui.inspectModal));
-	    register.modal.opinion($('.btn-primary', ui.opinionModal));
+	    register.modal.changePassword($('.btn-primary', ui.userModal));
+	    register.modal.addInspect($('.btn-primary', ui.inspectModal));
+	    register.modal.addOpinion($('.btn-primary', ui.opinionModal));
 
 	    register.sign.in($('form', ui.signIn));
 	    register.sign.up($('form', ui.signUp));
