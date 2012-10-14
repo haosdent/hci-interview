@@ -1,4 +1,11 @@
 /*
+ * @name: View.js
+ * @author: Haosdent Huang
+ * @email: haosdent@gmail.com
+ * @date: 2012-10-15
+ * @overview: The view layer.
+ */
+/*
  * TODO:
  * 1.converter
  */
@@ -12,21 +19,21 @@ window.view = (function(){
 	sign: $('section[role="sign"]'),
 	info: $('section[role="info"]'),
 	inspect: $('section[role="inspect"]'),
-	signIn: $('#signIn'),
-	signUp: $('#signUp'),
-	signOut: $('[href="#signOut"]'),
+	signIn: $('#sign-in'),
+	signUp: $('#sign-up'),
+	signOut: $('[href="#sign-out"]'),
 	toAdmin: $('[href="#admin"]'),
 	toInfo: $('[href="#info"]'),
-	userModal: $('#userModal'),
-	inspectModal: $('#inspectModal'),
-	opinionModal: $('#opinionModal')
+	userModal: $('#user-modal'),
+	inspectModal: $('#inspect-modal'),
+	opinionModal: $('#opinion-modal')
     };
 
     var animation = {
 	signIn: function(user){
 	    $('a[href="#sign"]', ui.nav).hide();
 	    $('a[href="#info"]', ui.nav).show();
-	    $('a[href="#signOut"]', ui.nav).show();
+	    $('a[href="#sign-out"]', ui.nav).show();
 	    user.admin && $('a[href="#admin"]', ui.nav).show();
 	    ui.sign.hide();
 	    ui.info.show();
@@ -36,7 +43,7 @@ window.view = (function(){
 	signOut: function(){
 	    $('a[href="#sign"]', ui.nav).show();
 	    $('a[href="#info"]', ui.nav).hide();
-	    $('a[href="#signOut"]', ui.nav).hide();
+	    $('a[href="#sign-out"]', ui.nav).hide();
 	    $('a[href="#admin"]', ui.nav).hide();
 	    ui.sign.show();
 	    ui.info.hide();
@@ -80,10 +87,10 @@ window.view = (function(){
 	    d.remove();
 	},
 	delInspect: function(id, inspectId){
-	    $('tr[dataUserId="' + id + '"][dataInspectId="' + inspectId + '"]').remove();
+	    $('tr[data-user-id="' + id + '"][data-inspect-id="' + inspectId + '"]').remove();
 	},
 	delOpinion: function(id, inspectId, opinionId){
-	    $('tr[dataUserId="' + id + '"][dataInspectId="' + inspectId + '"][dataOpinionId="' + opinionId + '"]').remove();
+	    $('tr[data-user-id="' + id + '"][data-inspect-id="' + inspectId + '"][data-opinion-id="' + opinionId + '"]').remove();
 	},
 	info: function(){
 	    ui.admin.hide();
@@ -116,14 +123,14 @@ window.view = (function(){
 	    var data = {
 		users: converter.userList(users)
 	    };
-	    var html = template.render('userList', data);
+	    var html = template.render('user-list', data);
 	    ui.admin.html(html);
 	},
 	inspectList: function(user){
 	    var data = {
 		user: converter.user(user)
 	    };
-	    var html = template.render('inspectList', data);
+	    var html = template.render('inspect-list', data);
 	    ui.inspect.html(html);
 	},
 	addInspect: function(id, inspect){
@@ -141,7 +148,7 @@ window.view = (function(){
 		opinion: opinion
 	    };
 	    var html = template.render('opinion', data);
-	    var d = $('tr[dataUserId="' + id + '"][dataInspectId="' + inspectId + '"]', ui.inspect).last();
+	    var d = $('tr[data-user-id="' + id + '"][data-inspect-id="' + inspectId + '"]', ui.inspect).last();
 	    d.after(html);
 	}
     };

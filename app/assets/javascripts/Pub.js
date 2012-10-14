@@ -1,3 +1,10 @@
+/*
+ * @name: Pub.js
+ * @author: Haosdent Huang
+ * @email: haosdent@gmail.com
+ * @date: 2012-10-15
+ * @overview: Save all the public variables.
+ */
 window.pub = (function(){
     var csrf;
     var xhr = function(type, location, fn, params){
@@ -24,7 +31,7 @@ window.pub = (function(){
 	xhr.send(params);
     };
 
-    //TODO:May be we can wirte a js tool like ror routes
+    //TODO:May be should wirte a js tool like ror routes
     var location = {
 	user: {
 	    restore: '/me',

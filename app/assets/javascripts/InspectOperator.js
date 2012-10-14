@@ -1,3 +1,10 @@
+/*
+ * @name: InspectOperator.js
+ * @author: Haosdent Huang
+ * @email: haosdent@gmail.com
+ * @date: 2012-10-15
+ * @overview: The controller of inspect.
+ */
 (function(){
      var Inspect = this.Inspect = function(user){
 	 //if(!user.checkAdmin()) throw new Error('Current user is no a admin.');
@@ -59,7 +66,6 @@
      };
 
      Inspect.prototype.destroy = function(id, inspectId, fn){
-	 //TODO:move this to configure file.
 	 var location = this.location.destroy + id + '/' + inspectId;
 	 var that = this;
 	 var callback = function(){

@@ -1,3 +1,10 @@
+/*
+ * @name: UserOperator.js
+ * @author: Haosdent Huang
+ * @email: haosdent@gmail.com
+ * @date: 2012-10-15
+ * @overview: The controller of user.
+ */
 (function(){
      var User = this.User = function(email, password){
 	 email && (this.email = email);
@@ -100,7 +107,7 @@
 	 pub.xhr('POST', location, callback, params);
      };
 
-     //Render the userlist to html.
+     //Render the user list to html.
      User.prototype.showAll = function(fn, errorFn){
 	 if(!this.checkAdmin()) return;
 

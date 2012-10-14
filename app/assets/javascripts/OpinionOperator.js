@@ -1,3 +1,10 @@
+/*
+ * @name: OpinionOperator.js
+ * @author: Haosdent Huang
+ * @email: haosdent@gmail.com
+ * @date: 2012-10-15
+ * @overview: The controller of opinion.
+ */
 (function(){
      var Opinion = this.Opinion = function(user){
 	 //if(!user.checkAdmin()) throw new Error('Current user is no a admin.');
@@ -59,7 +66,6 @@
      };
 
      Opinion.prototype.destroy = function(id, inspectId, opinionId, fn){
-	 //TODO:move this to configure file.
 	 var location = this.location.destroy + id + '/' + inspectId + '/' + opinionId;
 	 var that = this;
 	 var callback = function(){

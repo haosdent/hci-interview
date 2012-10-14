@@ -1,3 +1,10 @@
+/*
+ * @name: Test.js
+ * @author: Haosdent Huang
+ * @email: haosdent@gmail.com
+ * @date: 2012-10-15
+ * @overview: Contains some auto run test functions.
+ */
 (function(){
      var Test = this.Test = function(){};
 
@@ -25,7 +32,6 @@
 	     this.entity.create();
 	 },
 	 edit: function(){
-	     //TODO:Fix this method.
 	     this.entity.mobile = '1234';
 	     this.entity.edit();
 	 },

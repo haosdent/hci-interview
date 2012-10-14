@@ -1,3 +1,10 @@
+/*
+ * @name: Event.js
+ * @author: Haosdent Huang
+ * @email: haosdent@gmail.com
+ * @date: 2012-10-15
+ * @overview: The event layer which contains a handler, a register and the initializer of this website.
+ */
 window.event = function(){
     var ui = view.ui;
     var animation = view.animation;
@@ -9,24 +16,24 @@ window.event = function(){
     var handler = {
 	user: {
 	    toggle: function(d){
-		var id = $(d).attr('dataId');
-		$('tr[dataParentId="' + id + '"]', ui.admin).toggle();
+		var id = $(d).attr('data-id');
+		$('tr[data-parent-id="' + id + '"]', ui.admin).toggle();
 	    },
 	    show: function(d){
-		var id = $(d).attr('dataId');
+		var id = $(d).attr('data-id');
 		var callback = function(user){
 		    animation.inspect(user);
 		    register.user.toggleAdmin($('.badge-admin', ui.inspect));
 		    register.user.togglePassed($('.badge-passed', ui.inspect));
-		    register.inspect.add($('a[href="#addInspect"]', ui.inspect));
-		    register.inspect.del($('a[href="#delInspect"]', ui.inspect));
-		    register.opinion.add($('a[href="#addOpinion"]', ui.inspect));
-		    register.opinion.del($('a[href="#delOpinion"]'), ui.inspect);
+		    register.inspect.add($('a[href="#add-inspect"]', ui.inspect));
+		    register.inspect.del($('a[href="#del-inspect"]', ui.inspect));
+		    register.opinion.add($('a[href="#add-opinion"]', ui.inspect));
+		    register.opinion.del($('a[href="#del-opinion"]'), ui.inspect);
 		};
 		window.user.show(id, callback);
 	    },
 	    togglePassed: function(d){
-		var id = $(d).parent().attr('dataUserId');
+		var id = $(d).parent().attr('data-user-id');
 		var status = $(d).text().match('Yes') ? false : true;
 		var callback = function(){
 		    animation.setPassed(status);
@@ -35,7 +42,7 @@ window.event = function(){
 		window.user.setPassed(id, status, callback);
 	    },
 	    toggleAdmin: function(d){
-		var id = $(d).parent().attr('dataUserId');
+		var id = $(d).parent().attr('data-user-id');
 		var status = $(d).text().match('Yes') ? false : true;
 		var callback = function(){
 		    animation.setAdmin(status);
@@ -53,12 +60,12 @@ window.event = function(){
 	},
 	inspect: {
 	    add: function(d){
-		var id = $(d).attr('dataUserId');
-		$('input.content', ui.inspectModal).attr('dataUserId', id);
+		var id = $(d).attr('data-user-id');
+		$('input.content', ui.inspectModal).attr('data-user-id', id);
 	    },
 	    del: function(d){
-		var id = $(d).attr('dataUserId');
-		var inspectId = $(d).attr('dataInspectId');
+		var id = $(d).attr('data-user-id');
+		var inspectId = $(d).attr('data-inspect-id');
 		var callback = function(){
 		    animation.delInspect(id, inspectId);
 		};
@@ -67,15 +74,15 @@ window.event = function(){
 	},
 	opinion: {
 	    add: function(d){
-		var id = $(d).attr('dataUserId');
-		var inspectId = $(d).attr('dataInspectId');
-		$('input.content', ui.opinionModal).attr('dataUserId', id);
-		$('input.content', ui.opinionModal).attr('dataInspectId', inspectId);
+		var id = $(d).attr('data-user-id');
+		var inspectId = $(d).attr('data-inspect-id');
+		$('input.content', ui.opinionModal).attr('data-user-id', id);
+		$('input.content', ui.opinionModal).attr('data-inspect-id', inspectId);
 	    },
 	    del: function(d){
-		var id = $(d).attr('dataUserId');
-		var inspectId = $(d).attr('dataInspectId');
-		var opinionId = $(d).attr('dataOpinionId');
+		var id = $(d).attr('data-user-id');
+		var inspectId = $(d).attr('data-inspect-id');
+		var opinionId = $(d).attr('data-opinion-id');
 		var callback = function(){
 		    animation.delOpinion(id, inspectId, opinionId);
 		};
@@ -85,8 +92,8 @@ window.event = function(){
 	modal: {
 	    changePassword: function(d){
 		var password = $('input.password', ui.userModal).val();
-		var confirmPassword = $('input.confirmPassword', ui.userModal).val();
-		var currentPassword = $('input.currentPassword', ui.userModal).val();
+		var confirmPassword = $('input.confirm-password', ui.userModal).val();
+		var currentPassword = $('input.current-password', ui.userModal).val();
 
 		var msg;
 		var check = function(){
@@ -112,32 +119,31 @@ window.event = function(){
 	    /* Add inspect. */
 	    addInspect: function(d){
 		var input = $('input.content', ui.inspectModal);
-		var id = input.attr('dataUserId');
+		var id = input.attr('data-user-id');
 		var inspect = {
 		    content: input[0].value
 		};
 		var callback = function(inspect){
 		    ui.inspectModal.modal('hide');
 		    render.addInspect(id, inspect);
-		    var d = $('a[dataUserId="' + id + '"][dataInspectId="' + inspect._id + '"]', ui.inspect);
+		    var d = $('a[data-user-id="' + id + '"][data-inspect-id="' + inspect._id + '"]', ui.inspect);
 		    /* the first one is inspect item, the second one is opinion head. */
 		    register.inspect.del(d[0]);
 		    register.opinion.add(d[1]);
 		};
 		window.inspect.create(id, inspect, callback);
 	    },
-	    /* Add opinion. */
 	    addOpinion: function(d){
 		var input = $('input.content', ui.opinionModal);
-		var id = input.attr('dataUserId');
-		var inspectId = input.attr('dataInspectId');
+		var id = input.attr('data-user-id');
+		var inspectId = input.attr('data-inspect-id');
 		var opinion = {
 		    content: input[0].value
 		};
 		var callback = function(opinion){
 		    ui.opinionModal.modal('hide');
 		    render.addOpinion(id, inspectId, opinion);
-		    var d = $('a[dataUserId="' + id + '"][dataInspectId="' + inspectId + '"][dataOpinionId="' + opinion._id + '"]', ui.inspect);
+		    var d = $('a[data-user-id="' + id + '"][data-inspect-id="' + inspectId + '"][data-opinion-id="' + opinion._id + '"]', ui.inspect);
 		    register.opinion.del(d);
 		};
 		window.opinion.create(id, inspectId, opinion, callback);
@@ -304,8 +310,8 @@ window.event = function(){
 	    /* Bind handler functions to elements. */
 	    register.to.admin(ui.toAdmin);
 	    register.to.info(ui.toInfo);
-	    register.to.signIn($('a[href="#signIn"]', ui.signUp));
-	    register.to.signUp($('a[href="#signUp"]', ui.signIn));
+	    register.to.signIn($('a[href="#sign-in"]', ui.signUp));
+	    register.to.signUp($('a[href="#sign-up"]', ui.signIn));
 
 	    register.modal.changePassword($('.btn-primary', ui.userModal));
 	    register.modal.addInspect($('.btn-primary', ui.inspectModal));
