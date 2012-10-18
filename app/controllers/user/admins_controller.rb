@@ -1,6 +1,7 @@
 class User::AdminsController < User::SessionsController
 
   prepend_before_filter :authenticate_admin!
+  prepend_before_filter :prevent_current_user!
 
   def show_all
     @users = User.all

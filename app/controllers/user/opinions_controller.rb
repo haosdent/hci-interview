@@ -1,6 +1,7 @@
 class User::OpinionsController < User::SessionsController
 
   prepend_before_filter :authenticate_admin!
+  prepend_before_filter :prevent_current_user!
 
   def create
     @user = User.find(params[:id])

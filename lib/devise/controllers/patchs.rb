@@ -20,6 +20,13 @@ module Devise
         end
       end
 
+      def prevent_current_user!
+        if params[:id] == current_user[:_id].to_s
+          flash[:alert] = I18n.t("devise.failure.unauthenticated")
+          respond_with current_user
+        end
+      end
+
       def build_tip(object)
         #TODO
         if object != {}

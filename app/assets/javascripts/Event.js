@@ -108,6 +108,7 @@ window.event = function(){
 
 		var callback = function(user){
 		    ui.userModal.modal('hide');
+		    $('input', ui.userModal).val('');
 		};
 		var errorCallback = function(user){
 		    animation.changePasswordCheck(user.error);
@@ -125,6 +126,7 @@ window.event = function(){
 		};
 		var callback = function(inspect){
 		    ui.inspectModal.modal('hide');
+		    $('input', ui.inspectModal).val('');
 		    render.addInspect(id, inspect);
 		    var d = $('a[data-user-id="' + id + '"][data-inspect-id="' + inspect._id + '"]', ui.inspect);
 		    /* the first one is inspect item, the second one is opinion head. */
@@ -142,6 +144,7 @@ window.event = function(){
 		};
 		var callback = function(opinion){
 		    ui.opinionModal.modal('hide');
+		    $('input', ui.opinionModal).val('');
 		    render.addOpinion(id, inspectId, opinion);
 		    var d = $('a[data-user-id="' + id + '"][data-inspect-id="' + inspectId + '"][data-opinion-id="' + opinion._id + '"]', ui.inspect);
 		    register.opinion.del(d);
