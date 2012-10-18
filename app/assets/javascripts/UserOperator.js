@@ -14,7 +14,7 @@
      };
 
      User.prototype.init = function(user){
-	 this.id = user.id;
+	 this.id = user._id;
 	 this.email = user.email;
 	 this.name = user.name;
 	 this.studentId = user.student_id;

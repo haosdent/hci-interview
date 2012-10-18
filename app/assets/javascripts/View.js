@@ -129,6 +129,7 @@ window.view = (function(){
 	},
 	inspectList: function(user){
 	    var data = {
+		current_user: window.user,
 		user: converter.user(user)
 	    };
 	    var html = template.render('inspect-list', data);
