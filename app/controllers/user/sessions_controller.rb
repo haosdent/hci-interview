@@ -7,8 +7,7 @@ class User::SessionsController < Devise::SessionsController
   prepend_before_filter :set_csrf_header, :only => [:create, :get_current_user]
 
   def get_current_user
-    @user = current_user
-    render :json => @user
+    render_with_filter :json => @user, :filter => method(:inspects_filter)
   end
 
 end

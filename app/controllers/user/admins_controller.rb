@@ -4,18 +4,18 @@ class User::AdminsController < User::SessionsController
 
   def show_all
     @users = User.all
-    render :json => @users
+    render_with_filter :json => @users, :filter => method(:inspects_filter)
   end
 
   def show
     @user = User.find(params[:id])
-    render :json => @user
+    render_with_filter :json => @user, :filter => method(:inspects_filter)
   end
 
   def delete
     @user = User.find(params[:id])
     @user.destroy
-    render :json => @user
+    render_with_filter :json => @user, :filter => method(:inspects_filter)
   end
 
   def update
@@ -27,7 +27,7 @@ class User::AdminsController < User::SessionsController
     @user.save
 
     @user.update_attributes(params[:user])
-    render :json => @user
+    render_with_filter :json => @user, :filter => method(:inspects_filter)
   end
 
 end

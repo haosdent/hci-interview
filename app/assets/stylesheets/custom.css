@@ -5,9 +5,13 @@
  * @date: 2012-10-15
  * @overview: The custom css style.
  */
+
 /* Override Bootstrap */
 section {
     padding-top: 60px;
+}
+.badge {
+    font-size: 15px;
 }
 .modal-body span {
     display: inline-block;
@@ -19,6 +23,9 @@ section {
 }
 .wp90 {
     width: 90%;
+}
+.f17 {
+    font-size: 17px;
 }
 .f50 {
     font-size: 50px;

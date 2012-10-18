@@ -56,11 +56,13 @@ class User
   # field :authentication_token, :type => String
 
   ## Normal field
+
 end
 
 class Inspect
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Converters
 
   field :content, :type => String
 
@@ -77,6 +79,7 @@ end
 class Opinion
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Converters
 
   field :content, :type => String
 

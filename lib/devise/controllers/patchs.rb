@@ -28,16 +28,38 @@ module Devise
         object[:flash] = flash.each{} if flash.each{}.length > 0
       end
 
+      def inspects_filter(resource)
+        if resource != nil and current_user != nil
+          resource = resource.as_json
+          if resource.class == Array
+            resource.map! do |e|
+              e.delete('inspects') if e['_id'] == current_user[:_id]
+              e
+            end
+          elsif resource.class == Hash
+            resource.delete('inspects') if resource['_id'] == current_user[:_id]
+          end
+        end
+
+        return resource
+      end
+
       def respond_with(*resources, &block)
         resource = resources[0]
         resource = {} unless resource
         build_tip resource
+        resource = inspects_filter resource
 
         status = resources.extract_options![:location] if resources
         if status == nil
           status = (resource[:error] and resource[:error].length > 0? 400 : 200)
         end
         render :json => resource, :status => status
+      end
+
+      def render_with_filter(options = {})
+        resource = options[:filter].call options[:json]
+        render :json => resource
       end
 
       def respond_to(*resources)
