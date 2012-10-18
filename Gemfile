@@ -36,7 +36,6 @@ gem 'cloudfoundry-jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
 
 # To use mongoid as driver to mongo and use devise to auth.
 gem "bson_ext"

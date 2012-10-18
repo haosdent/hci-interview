@@ -11,11 +11,11 @@
     <title>HCI Interview</title>
     <meta name="viewport" content="width=device-width">
     <!-- For Produciton Environment. -->
-    <!--<link href="assets/application.css" media="all" type="text/css" rel="stylesheet">-->
+    <link href="assets/application.css" media="all" type="text/css" rel="stylesheet">
 
     <!-- For Development Environment. -->
-    <link href="assets/bootstrap.css" media="all" type="text/css" rel="stylesheet">
-    <link href="assets/custom.css" media="all" type="text/css" rel="stylesheet">
+    <!--<link href="assets/bootstrap.css" media="all" type="text/css" rel="stylesheet">
+    <link href="assets/custom.css" media="all" type="text/css" rel="stylesheet">-->
   </head>
   <body data-spy="scroll" data-target=".navbar">
     <!-- Navbar -->
@@ -235,7 +235,7 @@
 	    <span class="badge badge-important">No</span>
 	    <% };%>
 	  </p>
-	  <p><span class="badge badge-success" data-toggle="modal" data-target="#user-modal">Change Password</span></p>
+	  <p><a class="badge badge-success" data-toggle="modal" data-target="#user-modal">Change Password</a></p>
 	</div>
       </div>
       <% };%>
@@ -357,16 +357,16 @@
 	  <p><span class=" badge badge-warning">Student Id</span> <span class="badge badge-info"><%= user.student_id %></span></p>
 	  <p data-user-id="<%= user._id %>"><span class=" badge badge-warning">Passed</span>
 	    <% if (user.passed) {%>
-	    <span class=" badge badge-success badge-passed">Yes</span>
+	    <a class=" badge badge-success badge-passed">Yes</a>
 	    <% }else{%>
-	    <span class=" badge badge-important badge-passed">No</span>
+	    <a class=" badge badge-important badge-passed">No</a>
 	    <% };%>
 	  </p>
 	  <p data-user-id="<%= user._id %>"><span class=" badge badge-warning">Admin</span>
 	    <% if (user.admin) {%>
-	    <span class=" badge badge-success badge-admin">Yes</span>
+	    <a class=" badge badge-success badge-admin">Yes</a>
 	    <% }else{%>
-	    <span class=" badge badge-important badge-admin">No</span>
+	    <a class=" badge badge-important badge-admin">No</a>
 	    <% };%>
 	  </p>
 	</div>
@@ -460,7 +460,7 @@
     </script><!--/Opinion Template -->
 
     <!-- For Development Environment. -->
-    <script type="text/javascript" src="assets/template.js"></script>
+    <!--<script type="text/javascript" src="assets/template.js"></script>
     <script type="text/javascript" src="assets/jquery-1.8.1.js"></script>
     <script type="text/javascript" src="assets/bootstrap.js"></script>
     <script type="text/javascript" src="assets/Pub.js"></script>
@@ -468,13 +468,11 @@
     <script type="text/javascript" src="assets/Event.js"></script>
     <script type="text/javascript" src="assets/UserOperator.js"></script>
     <script type="text/javascript" src="assets/InspectOperator.js"></script>
-    <script type="text/javascript" src="assets/OpinionOperator.js"></script>
+    <script type="text/javascript" src="assets/OpinionOperator.js"></script>-->
     <!-- For Test Environment. -->
     <!--<script type="text/javascript" src="assets/Test.js"></script>-->
 
     <!-- For Produciton Environment. -->
-    <!--<script type="text/javascript" src="assets/application.js"></script>-->
-    <script>window.rescuejs = {token: "517090d3-8909-46ee-a02c-78cf2153c349", loaded: new Date().getTime()};</script>
-    <script src='http://rescuejs.com/rescue.beta.js?key=517090d3-8909-46ee-a02c-78cf2153c349'></script>
+    <script type="text/javascript" src="assets/application.js"></script>
   </body>
 </html>
